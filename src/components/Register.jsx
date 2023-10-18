@@ -1,11 +1,14 @@
+/* eslint-disable no-unused-vars */
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
 
 
 const Register = () => {
-    const {register}= useContext(AuthContext)
+    const { register, updateUserData, signInWithGoogle } =
+      useContext(AuthContext);
+    const navigate = useNavigate();
 
     const clickRegister = (event)=>{
         event.preventDefault();
@@ -29,6 +32,17 @@ const Register = () => {
                 // Signed up
                 const user = userCredential.user;
                 console.log(user);
+                 event.target.reset();
+                 toast.success("Registrations Successful !");
+                 if (name && url) {
+                   updateUserData(name, url);
+                 } else if (name) {
+                   updateUserData(name, "");
+                 } else if (url) {
+                   updateUserData("", url);
+                 }
+                 navigate("/");
+
                 // ...
               })
               .catch((error) => {
@@ -39,6 +53,17 @@ const Register = () => {
               });
          }
     }
+     const clickGoogleButton = () => {
+       signInWithGoogle()
+         .then((result) => {
+           toast.success("Login successful");
+        //    navigate(location?.state ? location.state : "/");
+        navigate('/')
+         })
+         .catch((error) => {
+           toast.error("Something went wrong");
+         });
+     };
     return (
       <div className=" mt-10 ">
         <div className="relative  w-1/5 mx-auto flex flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
@@ -156,6 +181,7 @@ const Register = () => {
           </form>
           <div className="px-6 sm:px-0 max-w-sm">
             <button
+              onClick={clickGoogleButton}
               type="button"
               className="text-white w-full  bg-main hover:bg-main focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center justify-between dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
             >
