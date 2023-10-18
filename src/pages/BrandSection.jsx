@@ -76,7 +76,7 @@ const BrandSection = () => {
               </div>
             </div>
           </Link>
-          <Link to={"/brand/bestbuy/details"}>
+          <Link to={"/brand/best-buy/details"}>
             <div>
               <div className="relative grid h-[250px] w-full max-w-[450px] flex-col items-end justify-center overflow-hidden rounded-xl bg-clip-border text-center ">
                 <div className="absolute inset-0 m-0 h-full w-full overflow-hidden rounded-none bg-transparent bg-[url('https://i.ibb.co/wKrgjf8/BBY-logo-blog-header-v01.jpg')] bg-cover bg-clip-border bg-center  shadow-none">
