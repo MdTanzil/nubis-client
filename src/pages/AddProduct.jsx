@@ -40,7 +40,7 @@ const AddProduct = () => {
     .then(data => {
         if(data.insertedId){
             toast.success('Product successfully inserted')
-            navigate(`/brand/:${brandName}/details"`);
+            navigate(`/brand/${brandName}/details`);
         }
     })
   };
