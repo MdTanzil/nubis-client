@@ -7,7 +7,7 @@ const Hero = () => {
             src="./header-image.png"
             className="max-w-xl rounded-lg shadow-2xl"
           />
-          <div className="" >
+          <div className="">
             <h1 className="text-5xl font-bold">
               Find influencers <br /> for your products
             </h1>
@@ -15,7 +15,9 @@ const Hero = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
               dignissim, neque ut ultrices sollicitudin
             </p>
-            <button className="btn bg-main text-white">offered services</button>
+            <button className="btn bg-main hover:bg-main text-white">
+              offered services
+            </button>
           </div>
         </div>
       </div>
