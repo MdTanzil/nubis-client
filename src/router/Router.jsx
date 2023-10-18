@@ -3,6 +3,7 @@ import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home";
 import Login from "../components/Login";
 import Register from "../components/Register";
+import BrandDetailsProducts from "../pages/BrandDetailsProducts";
 
 
 
@@ -17,12 +18,16 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login></Login>
+        element: <Login></Login>,
       },
       {
         path: "/register",
-        element: <Register></Register>
-      }
+        element: <Register></Register>,
+      },
+      {
+        path: "/brand/:brand/details",
+        element: <BrandDetailsProducts></BrandDetailsProducts>
+      },
     ],
   },
 ]);

@@ -3,21 +3,15 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
 
-
 const Navbar = () => {
-
-  const {user,logout} = useContext(AuthContext)
+  const { user, logout } = useContext(AuthContext);
   const navList = (
     <>
       <li>
         <NavLink
           to="/"
           className={({ isActive, isPending }) =>
-            isPending
-              ? ""
-              : isActive
-              ? " text-[#0092ff]"
-              : ""
+            isPending ? "" : isActive ? " text-[#0092ff]" : ""
           }
         >
           Home
@@ -25,24 +19,24 @@ const Navbar = () => {
       </li>
 
       <li>
-        <a>Service</a>
+        <a>Add Product</a>
       </li>
       <li>
-        <a>Details</a>
+        <a>My Cart</a>
       </li>
     </>
   );
-  const clickLogOut = ()=>{
+  const clickLogOut = () => {
     logout()
       .then(() => {
         // Sign-out successful.
-       toast.success("Logged out");
+        toast.success("Logged out");
       })
       .catch((error) => {
         // An error happened.
-        console.warn(error)
+        console.warn(error);
       });
-  }
+  };
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -71,7 +65,7 @@ const Navbar = () => {
           </ul>
         </div>
         <a className="normal-case text-xl">
-          <img className="w-[126px] h-[32px] m-2" src="./logo.svg" alt="" />
+          <img className="w-[126px] h-[32px] m-2" src="/logo.svg" alt="" />
         </a>
       </div>
       <div className="navbar-center hidden lg:flex lg:-mx-28">
