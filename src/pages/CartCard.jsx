@@ -27,8 +27,8 @@ const CartCard = ({ data, setdisplayData, displayData }) => {
       <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
         <img
           src={data?.thumnailImage}
-          alt="product-image"
-          className="w-full rounded-lg sm:w-40"
+          alt="product-image "
+          className="w-full max-h-20 rounded-lg sm:w-40"
         />
         <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
           <div className="mt-5 sm:mt-0">
@@ -38,7 +38,7 @@ const CartCard = ({ data, setdisplayData, displayData }) => {
           <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
             <div className="flex items-center border-gray-100"></div>
             <div className="flex items-center space-x-4">
-              <p className="text-sm">{data?.price}</p>
+              <p className="text-sm">Price : {data?.price}</p>
               <button
                 onClick={() => deleteCartItem(data?._id)}
                 className="btn hover:bg-main btn-sm bg-main text-white"
