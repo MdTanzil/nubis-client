@@ -1,12 +1,13 @@
 /* eslint-disable no-unused-vars */
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Login = () => {
     const { login, setUser, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate("/");
+    const location = useLocation();
 
   const clickLogin = (event) => {
     event.preventDefault();
@@ -21,7 +22,7 @@ const Login = () => {
         setUser(user);
       
         toast.success(user?.email + " Log in success");
-        navigate('/')
+        navigate(location?.state ? location.state : "/");
         
         // ...
       })
@@ -133,7 +134,7 @@ const Login = () => {
               to={"/register"}
               className="font-medium text-main transition-colors hover:text-blue-700"
             >
-              Sign In
+              Sign Up
             </Link>
           </p>
         </form>

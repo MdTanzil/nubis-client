@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
 
@@ -9,6 +9,7 @@ const Register = () => {
     const { register, updateUserData, signInWithGoogle } =
       useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
 
     const clickRegister = (event)=>{
         event.preventDefault();
@@ -57,8 +58,7 @@ const Register = () => {
        signInWithGoogle()
          .then((result) => {
            toast.success("Login successful");
-        //    navigate(location?.state ? location.state : "/");
-        navigate('/')
+           navigate(location?.state ? location.state : "/");
          })
          .catch((error) => {
            toast.error("Something went wrong");
