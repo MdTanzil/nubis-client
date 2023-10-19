@@ -5,7 +5,7 @@ const BrandSection = () => {
     return (
       <div className="mt-10">
         <h2 className="text-center text-5xl font-bold mb-10">Brands</h2>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid lg:grid-cols-3 grid-cols-1  gap-4">
           <Link to={"/brand/amazon/details"}>
             <div>
               <div className="relative grid h-[250px] w-full max-w-[450px] flex-col items-end justify-center overflow-hidden rounded-xl bg-clip-border text-center ">

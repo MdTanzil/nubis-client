@@ -5,7 +5,7 @@ const Hero = () => {
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img
             src="./header-image.png"
-            className="max-w-xl rounded-lg shadow-2xl"
+            className="lg:max-w-xl max-w-sm rounded-lg shadow-2xl"
           />
           <div className="">
             <h1 className="text-5xl font-bold">
