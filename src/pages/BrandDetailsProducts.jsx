@@ -3,25 +3,25 @@ import ProductCart from "../components/ProductCart";
 import { useEffect, useState } from "react";
 
 const BrandDetailsProducts = () => {
-  //http://localhost:3000/products-brand/alibaba
+  //https://nubis-server-832ynm1s6-tanzils-projects-637ef886.vercel.app/products-brand/alibaba
   const data = useLoaderData();
   const [brandInfo, setbrandInfo] = useState({});
 
   const params = useParams();
   // console.log(params.brand);
   // TODO: fetch brand image
-  
+
   useEffect(() => {
-    fetch(`http://localhost:3000/brand-images/${params.brand}`)
-    .then(response => response.json())
-    .then(data => {
-      /*
-      */
-     setbrandInfo(data)
-    })
+    fetch(
+      `https://nubis-server-832ynm1s6-tanzils-projects-637ef886.vercel.app/brand-images/${params.brand}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        /*
+         */
+        setbrandInfo(data);
+      });
   }, []);
-
-
 
   return (
     <div>
@@ -64,7 +64,6 @@ const BrandDetailsProducts = () => {
               </a>
             </div>
           </div>
-       
         </div>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-3">

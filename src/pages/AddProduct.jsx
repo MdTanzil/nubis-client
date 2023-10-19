@@ -6,7 +6,7 @@ const AddProduct = () => {
   TODO: add product form design . form will have
   1. image name brand-name type price short description rating ass button
   */
-    const navigate = useNavigate('/')
+  const navigate = useNavigate("/");
   const clickAddProduct = (event) => {
     event.preventDefault();
     const name = event.target.name.value;
@@ -28,21 +28,24 @@ const AddProduct = () => {
       thumnailImage,
       image01,
       image02,
-    }
-    fetch("http://localhost:3000/products",{
-        method: 'POST',
-        headers:{
-            'Content-Type': 'application/json',
+    };
+    fetch(
+      "https://nubis-server-832ynm1s6-tanzils-projects-637ef886.vercel.app/products",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(product)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if(data.insertedId){
-            toast.success('Product successfully inserted')
-            navigate(`/brand/${brandName}/details`);
+        body: JSON.stringify(product),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.insertedId) {
+          toast.success("Product successfully inserted");
+          navigate(`/brand/${brandName}/details`);
         }
-    })
+      });
   };
   return (
     <div className="mt-10">

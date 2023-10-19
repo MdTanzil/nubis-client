@@ -16,7 +16,7 @@ const ProductDetails = () => {
     image01,
     image02,
   } = data;
-  const  clickAddToCart = () => {
+  const clickAddToCart = () => {
     const cart = {
       productId: _id,
       name,
@@ -24,24 +24,25 @@ const ProductDetails = () => {
       price,
       thumnailImage,
     };
-     
-    fetch("http://localhost:3000/cart", {
-      method: "POST", // or 'PUT'
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(cart),
-    }).then(response => response.json())
-    .then(data =>{
-         if (data.insertedId) {
-            toast.success('Item added successfully')
-         }
-    })
 
-  }
-    
-      
-  
+    fetch(
+      "https://nubis-server-832ynm1s6-tanzils-projects-637ef886.vercel.app/cart",
+      {
+        method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(cart),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.insertedId) {
+          toast.success("Item added successfully");
+        }
+      });
+  };
+
   return (
     <div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
@@ -104,7 +105,9 @@ const ProductDetails = () => {
                 </div>
               </div>
               <div className="flex-1">
-                <p className="text-green-500 text-xl font-semibold">Rating {rating}</p>
+                <p className="text-green-500 text-xl font-semibold">
+                  Rating {rating}
+                </p>
                 <p className="text-gray-400 text-sm">{type}</p>
               </div>
             </div>
@@ -112,9 +115,7 @@ const ProductDetails = () => {
             <p className="text-gray-500">{description}</p>
 
             <div className="flex py-4 space-x-4">
-              <div className="relative">
-                
-              </div>
+              <div className="relative"></div>
 
               <button
                 onClick={clickAddToCart}

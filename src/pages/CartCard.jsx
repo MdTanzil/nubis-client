@@ -1,22 +1,23 @@
 /* eslint-disable react/prop-types */
 
-
 import toast from "react-hot-toast";
-
 
 const CartCard = ({ data, setdisplayData, displayData }) => {
   // console.log(data);
-//   console.log(displayData);
+  //   console.log(displayData);
   const deleteCartItem = (_id) => {
     console.log(_id);
-    fetch(`http://localhost:3000/cart/${_id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://nubis-server-832ynm1s6-tanzils-projects-637ef886.vercel.app/cart/${_id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
         if (data.deletedCount > 0) {
           toast.success("Data deleted successfully");
-          const filterdata = displayData.filter(d => d._id != _id)  
+          const filterdata = displayData.filter((d) => d._id != _id);
           setdisplayData(filterdata);
         }
       });

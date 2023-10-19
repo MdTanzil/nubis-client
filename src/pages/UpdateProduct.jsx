@@ -8,10 +8,10 @@ const UpdateProduct = () => {
   */
 
   // fetch single product data
-    const data = useLoaderData()
+  const data = useLoaderData();
 
-    const navigate = useNavigate('/')
-    const updateProduct = (event) => {
+  const navigate = useNavigate("/");
+  const updateProduct = (event) => {
     event.preventDefault();
     const name = event.target.name.value;
     const brandName = event.target.bname.value;
@@ -32,14 +32,17 @@ const UpdateProduct = () => {
       thumnailImage,
       image01,
       image02,
-    }
-    fetch(`http://localhost:3000/products/${data._id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(product),
-    })
+    };
+    fetch(
+      `https://nubis-server-832ynm1s6-tanzils-projects-637ef886.vercel.app/products/${data._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(product),
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
@@ -128,7 +131,7 @@ const UpdateProduct = () => {
                 Image 01
               </label>
               <input
-              defaultValue={data.image01}
+                defaultValue={data.image01}
                 type="url"
                 name="image1"
                 id="image1"
@@ -144,7 +147,7 @@ const UpdateProduct = () => {
                 Image 02
               </label>
               <input
-              defaultValue={data.image02}
+                defaultValue={data.image02}
                 type="url"
                 name="image2"
                 id="image2"
@@ -163,7 +166,7 @@ const UpdateProduct = () => {
                     Price
                   </label>
                   <input
-                  defaultValue={data.price}
+                    defaultValue={data.price}
                     type="number"
                     name="price"
                     id="price"
@@ -181,7 +184,7 @@ const UpdateProduct = () => {
                     Rating
                   </label>
                   <input
-                  defaultValue={data.rating}
+                    defaultValue={data.rating}
                     type="number"
                     min={0}
                     max={5}
@@ -201,7 +204,7 @@ const UpdateProduct = () => {
                 Type
               </label>
               <input
-              defaultValue={data.type}
+                defaultValue={data.type}
                 type="text"
                 name="type"
                 id="type"
@@ -217,7 +220,7 @@ const UpdateProduct = () => {
                 Short description
               </label>
               <textarea
-              defaultValue={data.description}
+                defaultValue={data.description}
                 id="description"
                 placeholder="Short description"
                 name="description"

@@ -37,7 +37,6 @@ const Navbar = () => {
         >
           My Cart
         </NavLink>
-        
       </li>
     </>
   );
@@ -102,7 +101,7 @@ const Navbar = () => {
         {user && (
           <>
             {user?.photoURL ? (
-              <div className="avatar online">
+              <div className="avatar online ml-3">
                 <div className="w-10 rounded-full">
                   <img src={user.photoURL} />
                 </div>
