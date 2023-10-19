@@ -1,4 +1,3 @@
-
 # Nubis
 ### Live Link 
 [Nubis](https://nubis-f0e6b.web.app/)
@@ -12,7 +11,7 @@
 
 
 
-# Course Registration
+
 
 ## Three key feature of this project 
 
