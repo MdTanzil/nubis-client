@@ -1,9 +1,11 @@
 /* eslint-disable react/no-unknown-property */
+import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 
 const ProductDetails = () => {
   const data = useLoaderData();
   const {
+    _id,
     name,
     brandName,
     type,
@@ -14,7 +16,32 @@ const ProductDetails = () => {
     image01,
     image02,
   } = data;
-  console.log(thumnailImage);
+  const  clickAddToCart = () => {
+    const cart = {
+      productId: _id,
+      name,
+      brandName,
+      price,
+      thumnailImage,
+    };
+     
+    fetch("http://localhost:3000/cart", {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(cart),
+    }).then(response => response.json())
+    .then(data =>{
+         if (data.insertedId) {
+            toast.success('Item added successfully')
+         }
+    })
+
+  }
+    
+      
+  
   return (
     <div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
@@ -77,8 +104,8 @@ const ProductDetails = () => {
                 </div>
               </div>
               <div className="flex-1">
-                <p className="text-green-500 text-xl font-semibold">Save 12%</p>
-                <p className="text-gray-400 text-sm">Inclusive of all Taxes.</p>
+                <p className="text-green-500 text-xl font-semibold">Rating {rating}</p>
+                <p className="text-gray-400 text-sm">{type}</p>
               </div>
             </div>
 
@@ -86,34 +113,11 @@ const ProductDetails = () => {
 
             <div className="flex py-4 space-x-4">
               <div className="relative">
-                <div className="text-center left-0 pt-2 right-0 absolute block text-xs uppercase text-gray-400 tracking-wide font-semibold">
-                  Qty
-                </div>
-                <select className="cursor-pointer appearance-none rounded-xl border border-gray-200 pl-4 pr-8 h-14 flex items-end pb-1">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-
-                <svg
-                  className="w-5 h-5 text-gray-400 absolute right-0 bottom-0 mb-2 mr-2"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M8 9l4-4 4 4m0 6l-4 4-4-4"
-                  />
-                </svg>
+                
               </div>
 
               <button
+                onClick={clickAddToCart}
                 type="button"
                 className="h-14 px-6 py-2 font-semibold rounded-xl bg-main hover:bg-indigo-500 text-white"
               >
