@@ -95,7 +95,7 @@ const AddProduct = () => {
                     <option value={"walmart"}>Walmart</option>
                     <option value={"ebay"}>ebay</option>
                     <option value={"alibaba"}>Alibaba</option>
-                    <option value={"terget"}>terget</option>
+                    <option value={"target"}>target</option>
                     <option value={"best-buy"}>Best Buy</option>
                   </select>
                 </div>
