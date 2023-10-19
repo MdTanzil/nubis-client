@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unknown-property */
 import { useLoaderData } from "react-router-dom";
-import Template from "./Template";
 
 const ProductDetails = () => {
   const data = useLoaderData();
@@ -83,9 +82,7 @@ const ProductDetails = () => {
               </div>
             </div>
 
-            <p className="text-gray-500">
-              {description}
-            </p>
+            <p className="text-gray-500">{description}</p>
 
             <div className="flex py-4 space-x-4">
               <div className="relative">

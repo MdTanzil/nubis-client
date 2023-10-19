@@ -27,10 +27,17 @@ const Navbar = () => {
         >
           Add Product
         </NavLink>
-      
       </li>
       <li>
-        <a>My Cart</a>
+        <NavLink
+          to="/cart"
+          className={({ isActive, isPending }) =>
+            isPending ? "" : isActive ? " text-[#0092ff]" : ""
+          }
+        >
+          My Cart
+        </NavLink>
+        
       </li>
     </>
   );
