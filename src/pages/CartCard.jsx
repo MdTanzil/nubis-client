@@ -7,12 +7,9 @@ const CartCard = ({ data, setdisplayData, displayData }) => {
   //   console.log(displayData);
   const deleteCartItem = (_id) => {
     console.log(_id);
-    fetch(
-      `https://nubis-server-832ynm1s6-tanzils-projects-637ef886.vercel.app/cart/${_id}`,
-      {
-        method: "DELETE",
-      }
-    )
+    fetch(`https://nubis-server.vercel.app/cart/${_id}`, {
+      method: "DELETE",
+    })
       .then((response) => response.json())
       .then((data) => {
         if (data.deletedCount > 0) {

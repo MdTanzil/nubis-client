@@ -3,8 +3,8 @@ import ProductCart from "../components/ProductCart";
 import { useEffect, useState } from "react";
 
 const BrandDetailsProducts = () => {
-  //https://nubis-server-832ynm1s6-tanzils-projects-637ef886.vercel.app/products-brand/alibaba
-  const data = useLoaderData();
+  //https://nubis-server.vercel.app/products-brand/alibaba
+  const data = useLoaderData([]);
   const [brandInfo, setbrandInfo] = useState({});
 
   const params = useParams();
@@ -12,9 +12,7 @@ const BrandDetailsProducts = () => {
   // TODO: fetch brand image
 
   useEffect(() => {
-    fetch(
-      `https://nubis-server-832ynm1s6-tanzils-projects-637ef886.vercel.app/brand-images/${params.brand}`
-    )
+    fetch(`https://nubis-server.vercel.app/brand-images/${params.brand}`)
       .then((response) => response.json())
       .then((data) => {
         /*

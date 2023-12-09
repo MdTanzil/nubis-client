@@ -33,16 +33,13 @@ const UpdateProduct = () => {
       image01,
       image02,
     };
-    fetch(
-      `https://nubis-server-832ynm1s6-tanzils-projects-637ef886.vercel.app/products/${data._id}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(product),
-      }
-    )
+    fetch(`https://nubis-server.vercel.app/products/${data._id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(product),
+    })
       .then((response) => response.json())
       .then((data) => {
         if (data.modifiedCount > 0) {

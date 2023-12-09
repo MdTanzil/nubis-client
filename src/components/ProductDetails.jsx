@@ -25,16 +25,13 @@ const ProductDetails = () => {
       thumnailImage,
     };
 
-    fetch(
-      "https://nubis-server-832ynm1s6-tanzils-projects-637ef886.vercel.app/cart",
-      {
-        method: "POST", // or 'PUT'
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(cart),
-      }
-    )
+    fetch("https://nubis-server.vercel.app/cart", {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(cart),
+    })
       .then((response) => response.json())
       .then((data) => {
         if (data.insertedId) {

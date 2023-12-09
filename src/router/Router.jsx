@@ -34,7 +34,7 @@ const router = createBrowserRouter([
         element: <BrandDetailsProducts></BrandDetailsProducts>,
         loader: ({ params }) =>
           fetch(
-            `https://nubis-server-832ynm1s6-tanzils-projects-637ef886.vercel.app/products-brand/${params.brand}`
+            `https://nubis-server.vercel.app/products-brand/${params.brand}`
           ),
       },
       {
@@ -53,9 +53,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://nubis-server-832ynm1s6-tanzils-projects-637ef886.vercel.app/products/${params.id}`
-          ),
+          fetch(`https://nubis-server.vercel.app/products/${params.id}`),
       },
       {
         path: "/update-products/:id",
@@ -65,9 +63,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://nubis-server-832ynm1s6-tanzils-projects-637ef886.vercel.app/products/${params.id}`
-          ),
+          fetch(`https://nubis-server.vercel.app/products/${params.id}`),
       },
 
       {
@@ -77,10 +73,7 @@ const router = createBrowserRouter([
             <Cart></Cart>
           </PrivateRoute>
         ),
-        loader: () =>
-          fetch(
-            "https://nubis-server-832ynm1s6-tanzils-projects-637ef886.vercel.app/cart"
-          ),
+        loader: () => fetch("https://nubis-server.vercel.app/cart"),
       },
     ],
   },
